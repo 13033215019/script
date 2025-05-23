@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: script
+created: 2025-04-22T11:46:13+08:00
