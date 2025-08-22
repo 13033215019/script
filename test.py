@@ -1,133 +1,30 @@
-# 找出json和描述不符合的数据
-json_data = [
-    {
-        "fieldLabel": "发票代码",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "发票号码", 
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "开票日期",
-        "value": "20", 
-        "valueDesc": "显示不必填"
-    },
-    {
-        "fieldLabel": "币种",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "税率",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "税额合计",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "金额合计",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "校验码",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "价税合计",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "不可抵扣",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "发票附件",
-        "value": "20",
-        "valueDesc": "显示不必填"
-    },
-    {
-        "fieldLabel": "归属人",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "身份证号",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "人员信息完整性",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "是否内部员工发票",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "是否代开发票",
-        "value": "20",
-        "valueDesc": "显示不必填"
-    },
-    {
-        "fieldLabel": "是否国内（不含港澳台）旅客运输",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "出发城市",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "到达城市",
-        "value": "10",
-        "valueDesc": "不显示"
-    },
-    {
-        "fieldLabel": "是否为进口增值税",
-        "value": "10",
-        "valueDesc": "不显示"
-    }
-]
+import pandas as pd
 
-desc = {
-    "不显示": [
-        "发票代码", "发票号码", "币种", "税率", "税额合计", "金额合计", 
-        "校验码", "价税合计", "不可抵扣", "归属人", "身份证号", 
-        "人员信息完整性", "是否内部员工发票", "是否代开发票", 
-        "是否国内（不含港澳台）旅客运输", "出发城市", "到达城市", 
-        "是否为进口增值税"
-    ],
-    "显示不必填": [
-        "开票日期", "发票附件"
-    ]
-}
+# 读取Excel文件
+excel_path = r"C:\Users\lijiang\Downloads\发票补充成本中心.xlsx"
+df = pd.read_excel(excel_path, dtype=str)
 
-mismatches = []
-
-for item in json_data:
-    shouldNotShow = item["fieldLabel"] in desc["不显示"]
-    shouldShowNotRequired = item["fieldLabel"] in desc["显示不必填"]
-    
-    if shouldNotShow and item["value"] != "10":
-        mismatches.append(f'{item["fieldLabel"]} 应该不显示但value不是10')
-    
-    if shouldShowNotRequired and item["value"] != "20":
-        mismatches.append(f'{item["fieldLabel"]} 应该显示不必填但value不是20')
-    
-    if not shouldNotShow and not shouldShowNotRequired:
-        mismatches.append(f'{item["fieldLabel"]} 在描述中未定义')
-
-print("不符合的数据：", mismatches)
+# 创建输出文件
+output_file = "output.sql"
+with open(output_file, 'w', encoding='utf-8') as f:
+    # 遍历每一行，格式化SQL并输出到文件
+    for idx, row in df.iterrows():
+        receipt_code = row['发票号码']
+        cost_center_code = row['costCenterCode']
+        cost_center_item_code = row['costCenterItemCode']
+        
+        sql = f"""insert into cm_rec_cost_center_item (receipt_id, cost_center_oid, cost_center_item_oid, tenant_id, created_date,
+                                         last_modified_date, created_by, last_modified_by)
+    select rec.id,(select cost_center_oid
+                   from art_cost_center where code = '{cost_center_code}' and tenant_id = 1895203830157574145 limit 1),(
+        select cost_center_item_oid
+        from art_cost_center_item where code = '{cost_center_item_code}' and cost_center_id = (
+            select art_cost_center.id
+            from art_cost_center where code = '{cost_center_code}' and tenant_id = 1895203830157574145 limit 1
+        ) limit 1
+        ),1895203830157574145,NOW(),NOW(),NULL,NULL
+    from atl_receipt rec
+             join cm_receipt_attribute attr on receipt_id = rec.id
+    where rec.bill_no = '{receipt_code}';"""
+        
+        f.write(sql + '\n')

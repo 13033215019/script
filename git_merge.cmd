@@ -1,6 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
-set "sprint_name=250620"
+set "sprint_name=250912"
 
 set "ENABLE_BRANCHS="
 :loop
