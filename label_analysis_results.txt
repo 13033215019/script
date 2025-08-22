@@ -1,0 +1,231 @@
+标签出现次数详细分析结果
+==================================================
+
+所有标签出现次数 (按次数降序排列):
+--------------------------------------------------
+  1. OverdueERLLabelCalImpl                                         217次
+  2. AttachmentInfoNotAgreeERLabelCalImpl                           217次
+  3. MaybeNonOriginalReceiptERLabelCalImpl                          217次
+  4. ExpStdReceiptLableCalImpl                                      216次
+  5. MxgVerifyFailLabelCalImpl                                      216次
+  6. AttachmentBrokenLabelCalImpl                                   216次
+  7. IssueReceiptInnerLabelCalImpl                                  216次
+  8. IssueReceiptOutLabelCalImpl                                    216次
+  9. DiDiInvoiceAmountOverLabelCalImpl                              216次
+ 10. AttachmentGettingLabelCalImpl                                  216次
+ 11. ReceiptAmountErrorInvLabelCalImpl                              144次
+ 12. PersonalInvoiceTagRELLabelCalImpl                              144次
+ 13. ReceiptEntryMethodNotMatchERLabelCalImpl                       144次
+ 14. ModifyReceiptRELLabelCalImpl                                   144次
+ 15. LinkNoERLLabelCalImpl                                          144次
+ 16. ReceiptAbnormalStatusRELLabelCalImpl                           144次
+ 17. TotalAmountChangesERLLableCalImpl                              144次
+ 18. InvalidReceiptInvLabelCalImpl                                  144次
+ 19. InvalidReceiptRELLabelCalImpl                                  144次
+ 20. InspFailedERLLabelCalImpl                                      144次
+ 21. MaybePaidByCompanyERLabelCalImpl                               144次
+ 22. ReceiptOutControlStatusRELLabelCalImpl                         144次
+ 23. OthersReceiptERLLabelCalImpl                                   144次
+ 24. PayeeNoVerifyNotPassERLabelCalImpl                             144次
+ 25. ReceiptInvalidStatusRELLabelCalImpl                            144次
+ 26. SensitiveWordsERLLabelCalImpl                                  144次
+ 27. ReceiptReversedStatusRELLabelCalImpl                           144次
+ 28. ReceiptAmountErrorERLLabelCalImpl                              144次
+ 29. DuplicateInvocieRELLabelCalImpl                                144次
+ 30. MaybeDuplicateBetweenTypeInvoiceRcpLabelCalImpl                144次
+ 31. UnclearCompanyRELLabelCalImpl                                  144次
+ 32. SalesPartyERLLabelCalImpl                                      144次
+ 33. GoodsServiceNameERLLabelCalImpl                                144次
+ 34. LinkNoRcpAndInvLLabelCalImpl                                   144次
+ 35. MaybeDuplicateInvoiceRcpLabelCalImpl                           144次
+ 36. InvalidReceiptRcpLabelCalImpl                                  144次
+ 37. ReceiptAmountErrorRcpLabelCalImpl                              144次
+ 38. PayeeTitleCheckRcpInvMappingLabelCalImpl                       144次
+ 39. InspectionResultConfirmedERLabelCalImpl                        144次
+ 40. WrongHeaderRELLabelCalImpl                                     144次
+ 41. MisMatchedInvLabelCalImpl                                      144次
+ 42. MisMatchedInvRELLabelCalImpl                                   144次
+ 43. NonEmployeesRELLabelCalImpl                                    144次
+ 44. AttachmentCheckNotPassERLabelCalImpl                           144次
+ 45. PayeeTitleCheckInvLabelCalImpl                                 144次
+ 46. PayeeTitleCheckERLabelCalImpl                                  144次
+ 47. BankCardOverTimeERLabelCalImpl                                  73次
+ 48. LaterAddedInvoiceConfirmedRelLabelCalImpl                       72次
+ 49. ExpStdExceededSingleInvForbidLableCalImpl                       72次
+ 50. ExpStdExceededSingleInvInfoLableCalImpl                         72次
+ 51. SyncPoolFailRecLabelCalImpl                                     72次
+ 52. DuplicateConsumptionRecordsInvLabelCalImpl                      72次
+ 53. AssociationExceptionErrorRcpInvLabelCalImpl                     72次
+ 54. ReceiptSelectSuccessInvLabelCalImpl                             72次
+ 55. MaybePaidByCompanyInvLabelCalImpl                               72次
+ 56. MisMatchedTitleMappingLabelCalImpl                              72次
+ 57. InvMixPaidOrderLabelCalImpl                                     72次
+ 58. ReceiptSelectFailedInvLabelCalImpl                              72次
+ 59. InvUnlinkedInvoiceLabelCalImpl                                  72次
+ 60. SuspectedDetourInvLableCalImpl                                  72次
+ 61. ContainsManuallyCreatedTripInvLabelCalImpl                      72次
+ 62. ReceiptNotMatchExpenseReportReceiptRcpLabelCalImpl              72次
+ 63. ReceiptOutControlStatusInvLabelCalImpl                          72次
+ 64. expenseOverApplicationBugetLabelCalImpl                         72次
+ 65. ReceiptAbnormalStatusInvLabelCalImpl                            72次
+ 66. ExpAlipayCorporateBizCardLabelCalImpl                           72次
+ 67. LaterAddInvoiceInvLabelCalImpl                                  72次
+ 68. ExpBaseAmountOverReceiptLabelCalImpl                            72次
+ 69. ExpHsbcBizCardLabelCalImpl                                      72次
+ 70. ExpStdExceededSingleInvWarnLableCalImpl                         72次
+ 71. OthersReceiptMappingLabelCalImpl                                72次
+ 72. InspectionResultConfirmedRcpLabelCalImpl                        72次
+ 73. ReceiptEntryMethodNotMatchRcpLabelCalImpl                       72次
+ 74. PartiallyReimbursedReceiptCalImpl                               72次
+ 75. AttachmentGetXmlLabelCalImpl                                    72次
+ 76. NationalBlackTaxpayerCheckRcpLabelCalImpl                       72次
+ 77. SensitiveWordsRcpInvLabelCalImpl                                72次
+ 78. PayeeNoVerifyNotPassRcpLabelCalImpl                             72次
+ 79. ReceiptNotCompleteRecLableCalImpl                               72次
+ 80. PayeeNoVerifyRcpLableCalImpl                                    72次
+ 81. WrongHeaderInvRecMappingLabelCalImpl                            72次
+ 82. BlackTaxpayerCheckRcpLabelCalImpl                               72次
+ 83. AttachmentCheckNotPassRcpLabelCalImpl                           72次
+ 84. EReceiptRcpLabelCalImpl                                         72次
+ 85. OriginalReceiptRcpLabelCalImpl                                  72次
+ 86. ReceiptInvalidStatusRcpLabelCalImpl                             72次
+ 87. CheckOrderUsedUpRcpLabelCalImpl                                 72次
+ 88. PersonalInvoiceTagRcpLabelCalImpl                               72次
+ 89. ReceiptReversedStatusRcpLabelCalImpl                            72次
+ 90. XmlGenePdfFailReceiptLabelCalImpl                               72次
+ 91. OverdueRcpLabelCalImpl                                          72次
+ 92. AbnormalTaxpayerCheckRcpInvMappingLabelCalImpl                  72次
+ 93. InvoiceFreeRecMappingCalImpl                                    72次
+ 94. MaybeNonOriginalReceiptRcpLabelCalImpl                          72次
+ 95. ProductDetailsRcpLabelCalImpl                                   72次
+ 96. MultiTaxRateSplitRcpInvMappingLabelCalImpl                      72次
+ 97. H5NonOriginalReceiptLabelCalImpl                                72次
+ 98. ReceiptNormalStatusRcpLabelCalImpl                              72次
+ 99. InspSuccessRcpLabelCalImpl                                      72次
+100. TotalAmountChangesRcpLableCalImpl                               72次
+101. ReceiptOutControlStatusRcpLabelCalImpl                          72次
+102. ReceiptAbnormalStatusRcpLabelCalImpl                            72次
+103. AttachmentInfoNotAgreeRcpCalImpl                                72次
+104. MisMatchedInvRcpInvMappingLabelCalImpl                          72次
+105. BlackTaxpayerCheckRcpInvMappingLabelCalImpl                     72次
+106. AttachmentGetPdfLabelCalImpl                                    72次
+107. XmlReceiptCheckModifyReceiptLabelCalImpl                        72次
+108. DigitalInvoiceReceiptLabelCalImpl                               72次
+109. InspFailedRcpLabelCalImpl                                       72次
+110. InvoiceFreeInvCalImpl                                           72次
+111. ERHuaBeiLabelCalculator                                         72次
+112. LaterAddReceiptRelLabelCalImpl                                  72次
+113. AbnormalTaxpayerCheckInvLabelCalImpl                            72次
+114. InspectionResultConfirmedInvLabelCalImpl                        72次
+115. WrongHeaderInvoiceLabelCalImpl                                  72次
+116. SensitiveWordsInvLabelCalImpl                                   72次
+117. OverdueInvLabelCalImpl                                          72次
+118. PersonalInvoiceTagInvLabelCalImpl                               72次
+119. TotalAmountChangesInvLableCalImpl                               72次
+120. AttachmentInfoNotAgreeInvCalImpl                                72次
+121. XmlReceiptCheckModifyInvoiceLabelCalImpl                        72次
+122. ReceiptNotMatchExpenseReportReceiptInvLabelCalImpl              72次
+123. AttachmentCheckNotPassInvLabelCalImpl                           72次
+124. BlackTaxpayerCheckInvLabelCalImpl                               72次
+125. BlackTaxpayerCheckERLabelCalImpl                                72次
+126. XmlGenePdfFailInvoiceLabelCalImpl                               72次
+127. PayeeNoVerifyNotPassInvLabelCalImpl                             72次
+128. AbnormalTaxpayerCheckERLabelCalImpl                             72次
+129. MaybeNonOriginalReceiptInvLabelCalImpl                          72次
+130. MisMatchedTitleInvLabelCalImpl                                  72次
+131. ReceiptNotMatchExpenseReportReceiptRepLabelCalImpl              72次
+132. ReceiptEntryMethodNotMatchInvLabelCalImpl                       72次
+133. NationalBlackTaxpayerCheckInvLabelCalImpl                       72次
+134. NationalBlackTaxpayerCheckERLabelCalImpl                        72次
+135. OthersReceiptInvLabelCalImpl                                    72次
+136. EReceiptInvLabelCalImpl                                         72次
+137. ReceiptInvalidStatusInvLabelCalImpl                             72次
+138. InspFailedInvLabelCalImpl                                       72次
+139. DifferentDeductionAttributeInvLabelCalImpl                      72次
+140. MultiTaxRateSplitInvLabelCalImpl                                72次
+141. PartiallyReimbursedInvoiceCalImpl                               72次
+142. ReceiptReversedStatusInvLabelCalImpl                            72次
+143. MisMatchedTitleERLLabelCalImpl                                  72次
+144. InspSuccessInvLabelCalImpl                                      72次
+145. ERBillOffSetPrepaymentLabelCalImpl                              72次
+146. ERBillOffSetLabelCalImpl                                        72次
+147. ExpStdPreInvoicePayInfoLabelCalImpl                             72次
+148. ExpStdPreInvoicePayForbidLabelCalImpl                           72次
+149. ExpStdPreInvoicePayWarnLabelCalImpl                             72次
+
+
+按操作类型分析:
+==================================================
+
+操作: REFRESH_EXPENSE_REPORT
+总标签数: 292
+唯一标签数: 4
+最常见的5个标签:
+  - BankCardOverTimeERLabelCalImpl: 73次
+  - OverdueERLLabelCalImpl: 73次
+  - AttachmentInfoNotAgreeERLabelCalImpl: 73次
+  - MaybeNonOriginalReceiptERLabelCalImpl: 73次
+
+操作: EXPENSE_REPORT_IMPORT_INVOICE
+总标签数: 2952
+唯一标签数: 41
+最常见的5个标签:
+  - ExpStdReceiptLableCalImpl: 72次
+  - ReceiptAmountErrorInvLabelCalImpl: 72次
+  - PersonalInvoiceTagRELLabelCalImpl: 72次
+  - ReceiptEntryMethodNotMatchERLabelCalImpl: 72次
+  - ModifyReceiptRELLabelCalImpl: 72次
+
+操作: SAVE_INVOICE_INTERNAL
+总标签数: 7128
+唯一标签数: 99
+最常见的5个标签:
+  - LaterAddedInvoiceConfirmedRelLabelCalImpl: 72次
+  - ExpStdExceededSingleInvForbidLableCalImpl: 72次
+  - ExpStdExceededSingleInvInfoLableCalImpl: 72次
+  - SyncPoolFailRecLabelCalImpl: 72次
+  - DuplicateConsumptionRecordsInvLabelCalImpl: 72次
+
+操作: SAVE_RECEIPT_RECALCULATE
+总标签数: 3744
+唯一标签数: 52
+最常见的5个标签:
+  - OthersReceiptMappingLabelCalImpl: 72次
+  - InspectionResultConfirmedRcpLabelCalImpl: 72次
+  - ReceiptEntryMethodNotMatchRcpLabelCalImpl: 72次
+  - PartiallyReimbursedReceiptCalImpl: 72次
+  - AttachmentGetXmlLabelCalImpl: 72次
+
+操作: CAL_INVOICE_LABELS
+总标签数: 72
+唯一标签数: 1
+最常见的5个标签:
+  - InvoiceFreeInvCalImpl: 72次
+
+操作: EXPENSE_REPORT_BILL_OFF_SET_PREPAYMENT
+总标签数: 72
+唯一标签数: 1
+最常见的5个标签:
+  - ERBillOffSetPrepaymentLabelCalImpl: 72次
+
+操作: EXPENSE_REPORT_BILL_OFF_SET
+总标签数: 72
+唯一标签数: 1
+最常见的5个标签:
+  - ERBillOffSetLabelCalImpl: 72次
+
+操作: SAVE_CORP_PAYMENT_INVOICE
+总标签数: 216
+唯一标签数: 3
+最常见的5个标签:
+  - PayeeTitleCheckRcpInvMappingLabelCalImpl: 72次
+  - PayeeTitleCheckInvLabelCalImpl: 72次
+  - PayeeTitleCheckERLabelCalImpl: 72次
+
+操作: SAVE_CORP_PAYMENT_LINE
+总标签数: 216
+唯一标签数: 3
+最常见的5个标签:
+  - ExpStdPreInvoicePayInfoLabelCalImpl: 72次
+  - ExpStdPreInvoicePayForbidLabelCalImpl: 72次
+  - ExpStdPreInvoicePayWarnLabelCalImpl: 72次
