@@ -1,55 +1,47 @@
 @echo off
 setlocal enabledelayedexpansion
-set "sprint_name=250912"
+for /f "delims=" %%b in ('git rev-parse --abbrev-ref HEAD') do set current_branch=%%b
 
-set "ENABLE_BRANCHS="
-:loop
-if "%1"=="" goto :continue
-set "ENABLE_BRANCHS=%ENABLE_BRANCHS% %1"
-shift
-goto :loop
-:continue
+set "pattern=!current_branch:er-=!"
 
-echo apply:****** ENABLE_BRANCHS=%ENABLE_BRANCHS%
-echo apply:****** sprint_name=%sprint_name%
+if "!pattern!"=="!current_branch!" (
+    echo Error: Current branch name does not match er-xxxx format
+    exit /b 1
+)
 
-echo apply:****** git fetch lijiang
+echo Extracted keyword from branch name: !pattern!
+
+:: Target branch (modify as needed)
+set target_branch=lijiang/hly-deploy
+
 git fetch lijiang
 
-if "%ENABLE_BRANCHS%"=="" (
-    for /f "tokens=*" %%i in ('git branch -r ^| findstr "lijiang" ^| findstr "%sprint_name%" ^| findstr /r /c:"lijiang/.*"') do (
-        set "branch=%%i"
-        set "branch=!branch:lijiang/=!"
-        
-        echo apply:****** Merging branch: !branch!
-        echo apply:****** git merge "lijiang/!branch!" --no-edit
-        git merge "lijiang/!branch!" --no-edit
-        if errorlevel 1 (
-            echo apply:****** Error merging branch !branch! ************************ 
-            exit /b 1
-        ) else (
-            echo apply:****** Successfully merged branch: !branch! ************************
-        )
-    )
-) else (
-    for %%p in (%ENABLE_BRANCHS%) do (
-        for /f "tokens=*" %%i in ('git branch -r ^| findstr "lijiang" ^| findstr "%%p" ^| findstr "%sprint_name%" ^| findstr /r /c:"lijiang/.*"') do (
-            set "branch=%%i"
-            set "branch=!branch:lijiang/=!"
-            
-            echo apply:****** Merging branch: !branch!
-            echo apply:****** git merge "lijiang/!branch!" --no-edit
-            git merge "lijiang/!branch!" --no-edit
-            if errorlevel 1 (
-                echo apply:****** Error merging branch !branch! ************************
-                exit /b 1
-            ) else (
-                echo apply:****** Successfully merged branch: !branch! ************************
-            )
-        )
+:: Get all commit hashes in target branch containing the keyword (in chronological order)
+set "commits="
+for /f "delims=" %%c in ('git log --pretty=format:"%%H" --grep="!pattern!" !target_branch! --reverse') do (
+    set "commits=!commits! %%c"
+)
+
+:: Check if any related commits found
+if "!commits!"=="" (
+    echo No commits containing !pattern! found in target branch !target_branch!
+    exit /b 0
+)
+
+echo The following related commits will be cherry-picked:
+for %%c in (!commits!) do (
+    git log -1 --pretty=format:"%%h - %%s" %%c
+)
+
+:: Batch cherry-pick
+for %%c in (!commits!) do (
+    echo Cherry-picking commit: %%c
+    git cherry-pick %%c
+    if !errorlevel! neq 0 (
+        echo Cherry-pick %%c failed, please resolve conflicts and run git cherry-pick --continue
+        exit /b 1
     )
 )
 
-echo apply:****** All branches merged successfully
-
+echo All related commits have been successfully cherry-picked to the current branch
 endlocal
